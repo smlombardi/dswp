@@ -7,7 +7,7 @@
  * @package _tk
  */
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?> ng-app="">
+<html <?php language_attributes(); ?> ng-app="app" >
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,7 +87,7 @@
 	</div><!-- .container -->
 </nav><!-- .site-navigation -->
 
-<div class="main-content">
+<div class="main-content" ng-controller="AppController">
 <?php // substitute the class "container-fluid" below if you want a wider content area ?>
 	<div class="container">
 		<div class="row">

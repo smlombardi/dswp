@@ -101,6 +101,15 @@ function _tk_scripts() {
 	// load _tk styles
 	wp_enqueue_style( '_tk-style', get_stylesheet_uri() );
 
+	//ANGULAR CORE
+	wp_enqueue_script('angular-core', '//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js', array('jquery'), null, false);
+	wp_enqueue_script('angular-route', '//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js', array('angular-core'), null, false);
+	wp_enqueue_script('angular-resource', '//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-resource.min.js', array('angular-route'), null, false);
+
+	//MY ANGULAR APP
+	wp_enqueue_script('angular-app', get_bloginfo('template_directory').'/js/angular-app.js', array('angular-resource'), null, false);
+	wp_enqueue_script('app-controller', get_bloginfo('template_directory').'/js/app-controller.js', array('angular-app'), null, false);
+
 	// load bootstrap js
 	wp_enqueue_script('_tk-bootstrapjs', get_template_directory_uri().'/includes/resources/bootstrap/js/bootstrap.min.js', array('jquery') );
 
