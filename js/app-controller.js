@@ -4,5 +4,7 @@
     var _this = this;
     _this.foo = 'bar';
     $log.debug(_this.foo);
+
+    $scope.test = 'foobar';
   });
 })();
