@@ -112,6 +112,8 @@ function _tk_scripts() {
 	//MY ANGULAR APP
 	wp_enqueue_script('angular-app', get_bloginfo('template_directory').'/js/angular-app.js', array('angular-resource'), null, false);
 	wp_enqueue_script('app-controller', get_bloginfo('template_directory').'/js/app-controller.js', array('angular-app'), null, false);
+	wp_enqueue_script('ui-bootstrap', get_bloginfo('template_directory').'/bower_components/angular-bootstrap/ui-bootstrap.min.js', array('angular-app'), null, false);
+	wp_enqueue_script('ui-bootstrap-template', get_bloginfo('template_directory').'/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js', array('angular-app'), null, false);
 
 	// load bootstrap js
 	wp_enqueue_script('_tk-bootstrapjs', get_template_directory_uri().'/includes/resources/bootstrap/js/bootstrap.min.js', array('jquery') );
