@@ -104,6 +104,9 @@ function _tk_scripts() {
 	// wp_enqueue_style( 'app-css', get_template_directory_uri() . '/includes/css/design_system.css' );
 	wp_enqueue_style( 'app-css', get_template_directory_uri() . '/css/app.css' );
 
+	// wp_enqueue_style( 'highlight-css', get_template_directory_uri() . '/bower_components/highlight-js/src/styles/default.css' );
+
+
 	//ANGULAR CORE
 	wp_enqueue_script('angular-core', '//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js', array('jquery'), null, false);
 	wp_enqueue_script('angular-route', '//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js', array('angular-core'), null, false);
@@ -114,6 +117,9 @@ function _tk_scripts() {
 	wp_enqueue_script('app-controller', get_bloginfo('template_directory').'/js/app-controller.js', array('angular-app'), null, false);
 	wp_enqueue_script('ui-bootstrap', get_bloginfo('template_directory').'/bower_components/angular-bootstrap/ui-bootstrap.min.js', array('angular-app'), null, false);
 	wp_enqueue_script('ui-bootstrap-template', get_bloginfo('template_directory').'/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js', array('angular-app'), null, false);
+
+	// wp_enqueue_script('jquery', get_bloginfo('template_directory').'bower_components/highlight-js/demo/jquery-2.1.1.min.js', array(), null, false);
+	// wp_enqueue_script('highlight-js', get_bloginfo('template_directory').'/bower_components/highlight-js/src/highlight.js', array(), null, false);
 
 	// load bootstrap js
 	wp_enqueue_script('_tk-bootstrapjs', get_template_directory_uri().'/includes/resources/bootstrap/js/bootstrap.min.js', array('jquery') );
@@ -133,6 +139,14 @@ function _tk_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', '_tk_scripts' );
+
+function hljs_shortcode( $atts, $content = null ) {
+	$a = shortcode_atts( array(
+		'class' => 'html',
+	), $atts );
+	return '<pre><code class="' . esc_attr($a['class']) . '">' . $content . '</code></pre>';
+}
+add_shortcode( 'foo', 'hljs_shortcode' );
 
 /**
  * Implement the Custom Header feature.
